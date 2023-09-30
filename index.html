@@ -1,0 +1,20 @@
+<html>
+    <head>
+      <style>      input{
+    margin-left:100px;
+}</style>
+
+    </head>
+    <body style="background:lightgreen">
+    <h1 style="background:darkgreen">My country:Afghanistan</h1>
+    <p id="ptag">Afghanistan, multiethnic landlocked country located in the heart of south-central Asia. Lying along important trade routes connecting southern and eastern Asia to Europe and the Middle East, Afghanistan has long been a prize sought by empire builders, and for millennia great armies have attempted to subdue it, leaving traces of their efforts in great monuments now fallen to ruin. The country's forbidding landscape of deserts and mountains has laid many imperial ambitions to rest, as has the tireless resistance of its fiercely independent peoples—so independent that the country has failed to coalesce into a nation but has instead long endured as a patchwork of contending ethnic factions and ever-shifting alliances.</p>
+    <h2 style="background:darkgreen">Find the Word in the paragraph</h2>
+    <input type="text" id="text" oninput="highlight()">
+      <script>original=document.getElementById("ptag").innerHTML
+function highlight(){
+    searchkey=document.getElementById("text").value;
+   newtext=original.replaceAll(searchkey,"<span style='background-color:lightblue'>"+searchkey+"</span>") 
+   document.getElementById("ptag").innerHTML=newtext
+}</script>
+    </body>
+</html>
