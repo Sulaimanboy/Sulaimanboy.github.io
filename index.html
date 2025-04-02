@@ -3,119 +3,277 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Asap City Real-Estate</title>
-    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/5364/5364136.png">
-    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f8f8;
-        }
-        header {
-            background-color: #333;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2em;
-        }
-        .search-bar {
-            max-width: 600px;
-            margin: 20px auto;
-            display: flex;
-        }
-        .search-bar input[type="text"] {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px 0 0 5px;
-        }
-        .search-bar input[type="submit"] {
-            padding: 10px 20px;
-            border: 1px solid #333;
-            border-radius: 0 5px 5px 0;
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-        }
-        .properties {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .property {
-            margin-bottom: 20px;
-        }
-        .property img {
-            width: 100%;
-            border-radius: 5px;
-        }
-        .property h2 {
-            font-size: 1.5em;
-            margin: 10px 0;
-        }
-        .property p {
-            color: #666;
-        }
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-        }
-        @media (max-width: 768px) {
-            .search-bar input[type="text"] {
-                width: 70%;
-            }
-            .search-bar input[type="submit"] {
-                width: 30%;
-            }
-        }
-        @media (max-width: 480px) {
-            .search-bar input[type="text"], .search-bar input[type="submit"] {
-                width: 100%;
-                display: block;
-                margin: 5px 0;
-            }
-        }
-    </style>
+    <title>FootyHub - Your Soccer News Source</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
-        <h1>Asap City Real-Estate</h1>
+        <div class="logo">
+            <h1>FootyHub</h1>
+            <p>Your Ultimate Soccer Destination</p>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#competitions">Competitions</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#legends">Legends</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
     </header>
-    <div class="search-bar">
-        <input type="text" placeholder="Search for properties...">
-        <input type="submit" value="Search">
-    </div>
-    <div class="properties">
-        <div class="property">
-            <img src="https://pbs.twimg.com/media/DJDQTSaVwAAFv-n.jpg" alt="Property Image">
-            <h2>Beautiful Family House</h2>
-            <p>4 Bed, 3 Bath, 3000 sqft</p>
-        </div>
-        <div class="property">
-            <img src="https://res.cloudinary.com/sagacity/image/upload/c_crop,h_3126,w_5000,x_0,y_0/c_limit,dpr_auto,f_auto,fl_lossy,q_80,w_1080/NQS_MS_LENORA_View_20_Bedroom_gbgxsr.jpg" alt="Property Image">
-            <h2>Modern Apartment</h2>
-            <p>2 Bed, 2 Bath, 1500 sqft</p>
-        </div>
-        <div class="property">
-            <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/466378675.jpg?k=47439be8a91e422a1dbef4f02630d6c86f1266a815d7bd8f21b2c5ce0492bcc1&o=&hp=1" alt="Property Image">
-            <h2>Luxury Villa</h2>
-            <p>5 Bed, 4 Bath, 5000 sqft</p>
-        </div>
-    </div>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Stay Updated With The World of Soccer</h2>
+                <p>Latest matches, transfers, and legendary players all in one place</p>
+                <button class="cta-button">Explore Now</button>
+            </div>
+        </section>
+
+        <section id="competitions" class="competitions-section">
+            <h2 class="section-title">Upcoming & Ongoing Competitions</h2>
+            <div class="competitions-container">
+                <div class="competition-card">
+                    <img src="https://via.placeholder.com/300x200?text=FIFA+World+Cup" alt="FIFA World Cup">
+                    <h3>FIFA World Cup 2026</h3>
+                    <p>Starts: June 8, 2026</p>
+                    <p>Host: USA, Canada, Mexico</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 20%;">20%</div>
+                    </div>
+                    <p>Qualifiers ongoing</p>
+                </div>
+                <div class="competition-card">
+                    <img src="https://via.placeholder.com/300x200?text=UEFA+Champions+League" alt="UEFA Champions League">
+                    <h3>UEFA Champions League 2023/24</h3>
+                    <p>Started: September 19, 2023</p>
+                    <p>Final: June 1, 2024</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 75%;">75%</div>
+                    </div>
+                    <p>Quarter-finals completed</p>
+                </div>
+                <div class="competition-card">
+                    <img src="https://via.placeholder.com/300x200?text=Copa+America" alt="Copa America">
+                    <h3>Copa America 2024</h3>
+                    <p>Starts: June 20, 2024</p>
+                    <p>Host: United States</p>
+                    <div class="progress-bar">
+                        <div class="progress" style="width: 5%;">5%</div>
+                    </div>
+                    <p>Preparation stage</p>
+                </div>
+            </div>
+            <div class="scroll-arrows">
+                <button class="scroll-left"><i class="fas fa-chevron-left"></i></button>
+                <button class="scroll-right"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <section id="news" class="news-section">
+            <h2 class="section-title">Daily Soccer News</h2>
+            <div class="news-container">
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/400x250?text=Breaking+News" alt="News Image">
+                    <div class="news-content">
+                        <h3>Mbappé Agrees Terms with Real Madrid</h3>
+                        <p class="news-date">April 3, 2025</p>
+                        <p class="news-excerpt">French superstar Kylian Mbappé has finally agreed to join Real Madrid after months of negotiations. The deal is expected to be announced next week.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/400x250?text=Match+Report" alt="News Image">
+                    <div class="news-content">
+                        <h3>Manchester City Dominates Derby</h3>
+                        <p class="news-date">April 2, 2025</p>
+                        <p class="news-excerpt">Manchester City showed their class with a 4-1 victory over Manchester United in the Premier League derby. Haaland scored twice.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/400x250?text=Transfer+News" alt="News Image">
+                    <div class="news-content">
+                        <h3>Barcelona Announces New Manager</h3>
+                        <p class="news-date">April 1, 2025</p>
+                        <p class="news-excerpt">After Xavi's departure, Barcelona has appointed former Bayern Munich coach as their new head coach on a 3-year contract.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="news-card">
+                    <img src="https://via.placeholder.com/400x250?text=Injury+Update" alt="News Image">
+                    <div class="news-content">
+                        <h3>Neymar Out for Season</h3>
+                        <p class="news-date">March 30, 2025</p>
+                        <p class="news-excerpt">Brazilian forward Neymar Jr. will miss the rest of the season after suffering a serious knee injury during Al-Hilal's match.</p>
+                        <a href="#" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+            <div class="news-scroll-container">
+                <div class="news-ticker">
+                    <span class="ticker-label">LATEST:</span>
+                    <span class="ticker-item">Premier League announces new TV deal worth $8 billion</span>
+                    <span class="ticker-item">|</span>
+                    <span class="ticker-item">Messi scores hat-trick for Inter Miami</span>
+                    <span class="ticker-item">|</span>
+                    <span class="ticker-item">Arsenal signs young Brazilian wonderkid</span>
+                    <span class="ticker-item">|</span>
+                    <span class="ticker-item">UEFA changes Champions League format for 2024/25 season</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="legends" class="legends-section">
+            <h2 class="section-title">Soccer Legends</h2>
+            <div class="legend-selector">
+                <button class="legend-btn active" data-legend="messi">Lionel Messi</button>
+                <button class="legend-btn" data-legend="ronaldo">Cristiano Ronaldo</button>
+                <button class="legend-btn" data-legend="pele">Pelé</button>
+                <button class="legend-btn" data-legend="maradona">Maradona</button>
+            </div>
+            
+            <div class="legend-profile" id="messi-profile">
+                <div class="legend-header">
+                    <img src="https://via.placeholder.com/200x200?text=Lionel+Messi" alt="Lionel Messi" class="legend-image">
+                    <div class="legend-info">
+                        <h3>Lionel Messi</h3>
+                        <p class="legend-years">Career: 2003 - 2023</p>
+                        <p class="legend-position">Position: Forward / Attacking Midfielder</p>
+                        <div class="legend-timeline">
+                            <div class="timeline-bar">
+                                <div class="timeline-progress" style="width: 100%;"></div>
+                            </div>
+                            <div class="timeline-labels">
+                                <span>2003 (Debut)</span>
+                                <span>2023 (Retirement)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="legend-details">
+                    <div class="detail-box">
+                        <h4>Clubs</h4>
+                        <ul>
+                            <li>Barcelona (2003-2021)</li>
+                            <li>Paris Saint-Germain (2021-2023)</li>
+                            <li>Inter Miami (2023)</li>
+                        </ul>
+                    </div>
+                    <div class="detail-box">
+                        <h4>Major Achievements</h4>
+                        <ul>
+                            <li>8x Ballon d'Or Winner</li>
+                            <li>4x Champions League Winner</li>
+                            <li>FIFA World Cup Winner (2022)</li>
+                            <li>All-time top scorer for Barcelona</li>
+                        </ul>
+                    </div>
+                    <div class="detail-box">
+                        <h4>Iconic Cleats</h4>
+                        <div class="cleats-gallery">
+                            <img src="https://via.placeholder.com/100x100?text=Adidas+Nemeziz" alt="Adidas Nemeziz">
+                            <img src="https://via.placeholder.com/100x100?text=Adidas+X" alt="Adidas X">
+                            <img src="https://via.placeholder.com/100x100?text=Adidas+Pulse" alt="Adidas Pulse">
+                        </div>
+                    </div>
+                    <div class="detail-box">
+                        <h4>Career Stats</h4>
+                        <div class="stats">
+                            <div class="stat-item">
+                                <span class="stat-number">821</span>
+                                <span class="stat-label">Club Goals</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">350</span>
+                                <span class="stat-label">Assists</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">106</span>
+                                <span class="stat-label">Int'l Goals</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="legend-profile" id="ronaldo-profile" style="display: none;">
+                <!-- Similar structure for Ronaldo profile -->
+            </div>
+            
+            <div class="legend-profile" id="pele-profile" style="display: none;">
+                <!-- Similar structure for Pelé profile -->
+            </div>
+            
+            <div class="legend-profile" id="maradona-profile" style="display: none;">
+                <!-- Similar structure for Maradona profile -->
+            </div>
+        </section>
+
+        <section id="about" class="about-section">
+            <h2 class="section-title">About the Developer</h2>
+            <div class="about-content">
+                <img src="https://via.placeholder.com/200x200?text=Salman" alt="Salman" class="developer-image">
+                <div class="developer-info">
+                    <h3>Salman</h3>
+                    <p class="developer-title">Web Developer & Soccer Enthusiast</p>
+                    <p>Hello! I'm Salman, the creator of FootyHub. I've been passionate about soccer since childhood and combined that with my web development skills to create this platform.</p>
+                    <p>This website was built using HTML5, CSS3, and JavaScript to provide soccer fans with the latest news, competition updates, and information about legendary players.</p>
+                    <div class="developer-skills">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">Responsive Design</span>
+                        <span class="skill-tag">UI/UX</span>
+                    </div>
+                    <div class="developer-contact">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
     <footer>
-        <p>&copy; 2024 Asap City. All rights reserved.</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>FootyHub</h4>
+                <p>Your ultimate destination for all things soccer. Stay updated with the latest news, competitions, and legendary players.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#competitions">Competitions</a></li>
+                    <li><a href="#news">News</a></li>
+                    <li><a href="#legends">Legends</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect With Us</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 FootyHub. All rights reserved. Developed by Salman.</p>
+        </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
