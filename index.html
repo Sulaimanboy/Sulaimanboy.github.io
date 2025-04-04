@@ -7,6 +7,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Global Styles */
+        .legends-section {
+        padding: 2rem;
+        background-color: white;
+        margin: 2rem 0;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+    .legend-selector {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+    }
+
+    .legend-btn {
+        padding: 0.8rem 1.5rem;
+        background: #f0f0f0;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .legend-btn.active {
+        background: #1e88e5;
+        color: white;
+    }
+
+    /* Dark mode variants */
+    body.dark-mode .legends-section,
+    body.dark-mode .legend-profile {
+        background-color: #1e1e1e;
+        color: #e0e0e0;
+    }
+
+    body.dark-mode .legend-btn:not(.active) {
+        background-color: #333;
+    }
         :root {
             --primary-color: #1e88e5;
             --secondary-color: #0d47a1;
@@ -942,7 +981,57 @@
                 </div>
             </div>
         </section>
+<!-- Legends Section HTML -->
+<section id="legends" class="legends-section">
+    <h2 class="section-title">Soccer Legends</h2>
+    <div class="legend-selector">
+        <button class="legend-btn active" data-legend="messi">Messi</button>
+        <button class="legend-btn" data-legend="ronaldo">Ronaldo</button>
+        <button class="legend-btn" data-legend="pele">Pelé</button>
+        <button class="legend-btn" data-legend="maradona">Maradona</button>
+    </div>
 
+    <!-- Messi Profile -->
+    <div class="legend-profile" id="messi-profile">
+        <div class="legend-header">
+            <img src="messi.jpg" alt="Lionel Messi" class="legend-image">
+            <div class="legend-info">
+                <h3>Lionel Messi</h3>
+                <p class="legend-years">Career: 2003-Present</p>
+                <p class="legend-position">Position: Forward / Attacking Midfielder</p>
+                <div class="legend-timeline">
+                    <div class="timeline-bar">
+                        <div class="timeline-progress" style="width: 100%"></div>
+                    </div>
+                    <div class="timeline-labels">
+                        <span>2003 (Debut)</span>
+                        <span>2023 (Active)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="legend-details">
+            <div class="detail-box">
+                <h4>Clubs</h4>
+                <ul>
+                    <li>Barcelona (2003-2021) - 778 apps, 672 goals</li>
+                    <li>PSG (2021-2023) - 75 apps, 32 goals</li>
+                    <li>Inter Miami (2023-Present) - 41 apps, 22 goals</li>
+                </ul>
+            </div>
+            <div class="detail-box">
+                <h4>International</h4>
+                <ul>
+                    <li>Argentina (2005-Present) - 180 caps, 106 goals</li>
+                    <li>2022 World Cup Winner</li>
+                    <li>2021 Copa America Winner</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Other legends follow similar structure with real data -->
+</section>
         <!-- Legends and About sections remain unchanged -->
 
         <section id="about" class="about-section">
@@ -1149,6 +1238,28 @@
             setupNewsRefresh();
             setTimeout(updateTickerAnimation, 2000);
         });
+            // Legend selector functionality
+    document.querySelectorAll('.legend-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Remove active class from all buttons
+            document.querySelectorAll('.legend-btn').forEach(b => b.classList.remove('active'));
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Hide all profiles
+            document.querySelectorAll('.legend-profile').forEach(profile => {
+                profile.style.display = 'none';
+            });
+            
+            // Show selected profile
+            const legend = this.dataset.legend;
+            document.getElementById(`${legend}-profile`).style.display = 'block';
+        });
+    });
+
+    // Show Messi profile by default
+    document.getElementById('messi-profile').style.display = 'block';
     </script>
 </body>
 </html>
