@@ -1090,72 +1090,107 @@
             <p>&copy; 2025 FootyHub. All rights reserved. Developed by Salman.</p>
         </div>
     </footer>
-
+<!-- In your HTML -->
+<section id="news" class="news-section">
+    <h2 class="section-title">Daily Soccer News</h2>
+    <div class="news-container" id="news-container">
+        <div class="news-loading">Loading latest news...</div>
+    </div>
+    <div class="news-scroll-container">
+        <div class="news-ticker" id="news-ticker">
+            <span class="ticker-label">LATEST:</span>
+        </div>
+    </div>
+</section>
     <script>
-        // News API Configuration
-        const NEWS_API_KEY = 'c7a0875f7d8a4e44a3529ff1330edaaf'; // Get your free key from newsapi.org
-        // Replace the NEWS_API_URL with:
-const NEWS_API_URL = `https://cors-anywhere.herokuapp.com/https://newsapi.org/v2/everything?q=soccer&sortBy=publishedAt&apiKey=${NEWS_API_KEY}`;
 
-        // News Functions
-        async function fetchNews() {
-            try {
-                const response = await fetch(NEWS_API_URL);
-                const data = await response.json();
-                
-                if(data.status === 'ok') {
-                    const newsContainer = document.querySelector('.news-container');
-                    const ticker = document.getElementById('news-ticker');
-                    
-                    newsContainer.innerHTML = '';
-                    ticker.innerHTML = '<span class="ticker-label">LATEST:</span>';
-                    
-                    data.articles.slice(0, 4).forEach(article => {
-                        const newsCard = document.createElement('article');
-                        newsCard.className = 'news-card';
-                        newsCard.innerHTML = `
-                            <img src="${article.urlToImage || 'https://via.placeholder.com/400x250?text=Football+News'}" alt="${article.title}">
-                            <div class="news-content">
-                                <h3>${article.title}</h3>
-                                <p class="news-date">${new Date(article.publishedAt).toLocaleDateString()}</p>
-                                <p class="news-excerpt">${article.description || ''}</p>
-                                <a href="${article.url}" target="_blank" class="read-more">Read More</a>
-                            </div>
-                        `;
-                        newsContainer.appendChild(newsCard);
-                    });
-
-                    data.articles.slice(0, 5).forEach(article => {
-                        const tickerItem = document.createElement('span');
-                        tickerItem.className = 'ticker-item';
-                        tickerItem.textContent = article.title;
-                        ticker.appendChild(tickerItem);
-                        ticker.appendChild(document.createTextNode(' | '));
-                    });
-                }
-            } catch (error) {
-                console.error('Error fetching news:', error);
-                const errorElement = document.createElement('div');
-                errorElement.className = 'error-message';
-                errorElement.textContent = 'Failed to load news. Please try again later.';
-                document.querySelector('.news-container').appendChild(errorElement);
-            }
+// Replace your news JavaScript with this:
+document.addEventListener('DOMContentLoaded', function() {
+    // Mock news data that works without API
+    const mockNews = [
+        {
+            title: "Messi leads Inter Miami to Leagues Cup victory",
+            date: "2023-08-19",
+            excerpt: "Lionel Messi scored two goals as Inter Miami defeated Nashville SC in the Leagues Cup final.",
+            image: "https://via.placeholder.com/400x250?text=Messi+Leagues+Cup",
+            url: "#"
+        },
+        {
+            title: "Premier League announces new financial rules",
+            date: "2023-08-18",
+            excerpt: "The Premier League has agreed to implement new financial regulations starting next season.",
+            image: "https://via.placeholder.com/400x250?text=Premier+League",
+            url: "#"
+        },
+        {
+            title: "USWNT advances to World Cup knockout stage",
+            date: "2023-08-17",
+            excerpt: "The US Women's National Team secured their place in the round of 16 with a dominant performance.",
+            image: "https://via.placeholder.com/400x250?text=USWNT",
+            url: "#"
+        },
+        {
+            title: "Haaland breaks Premier League scoring record",
+            date: "2023-08-16",
+            excerpt: "Erling Haaland has set a new single-season Premier League scoring record with 36 goals.",
+            image: "https://via.placeholder.com/400x250?text=Haaland",
+            url: "#"
         }
+    ];
 
-        function setupNewsRefresh() {
-            fetchNews();
-            setInterval(fetchNews, 6 * 60 * 60 * 1000);
-        }
+    function displayNews() {
+        const newsContainer = document.getElementById('news-container');
+        const ticker = document.getElementById('news-ticker');
+        
+        // Clear loading message
+        newsContainer.innerHTML = '';
+        ticker.innerHTML = '<span class="ticker-label">LATEST:</span>';
+        
+        // Add news cards
+        mockNews.forEach(article => {
+            const newsCard = document.createElement('article');
+            newsCard.className = 'news-card';
+            newsCard.innerHTML = `
+                <img src="${article.image}" alt="${article.title}">
+                <div class="news-content">
+                    <h3>${article.title}</h3>
+                    <p class="news-date">${new Date(article.date).toLocaleDateString()}</p>
+                    <p class="news-excerpt">${article.excerpt}</p>
+                    <a href="${article.url}" class="read-more">Read More</a>
+                </div>
+            `;
+            newsContainer.appendChild(newsCard);
+        });
 
-        function updateTickerAnimation() {
-            const ticker = document.querySelector('.news-ticker');
-            const itemsWidth = Array.from(ticker.children).reduce((acc, child) => {
-                return acc + child.offsetWidth;
-            }, 0);
-            
-            const duration = Math.max(30, Math.floor(itemsWidth / 50));
-            ticker.style.animation = `ticker ${duration}s linear infinite`;
-        }
+        // Add ticker items
+        mockNews.forEach(article => {
+            const tickerItem = document.createElement('span');
+            tickerItem.className = 'ticker-item';
+            tickerItem.textContent = article.title;
+            ticker.appendChild(tickerItem);
+            ticker.appendChild(document.createTextNode(' | '));
+        });
+
+        // Update ticker animation
+        updateTickerAnimation();
+    }
+
+    function updateTickerAnimation() {
+        const ticker = document.querySelector('.news-ticker');
+        const itemsWidth = Array.from(ticker.children).reduce((acc, child) => {
+            return acc + child.offsetWidth;
+        }, 0);
+        
+        const duration = Math.max(30, Math.floor(itemsWidth / 50));
+        ticker.style.animation = `ticker ${duration}s linear infinite`;
+    }
+
+    // Display news immediately
+    displayNews();
+    
+    // Refresh news every 6 hours (simulated)
+    setInterval(displayNews, 6 * 60 * 60 * 1000);
+});
 
         // Original JavaScript with added news functionality
         document.addEventListener('DOMContentLoaded', function() {
