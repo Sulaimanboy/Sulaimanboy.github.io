@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FootyHub - Your Soccer News Source</title>
+    <title>FootyHub - Soccer News</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Global Styles */
         :root {
             --primary-color: #1e88e5;
             --secondary-color: #0d47a1;
@@ -14,9 +13,6 @@
             --light-color: #f5f5f5;
             --dark-color: #212121;
             --gray-color: #757575;
-            --success-color: #4caf50;
-            --warning-color: #ff9800;
-            --danger-color: #f44336;
         }
 
         * {
@@ -24,7 +20,6 @@
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         body {
@@ -33,16 +28,6 @@
             line-height: 1.6;
         }
 
-        a {
-            text-decoration: none;
-            color: var(--primary-color);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* Header Styles */
         header {
             background-color: var(--primary-color);
             color: white;
@@ -50,78 +35,14 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        .logo h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-        }
-
-        .logo p {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
-        nav ul {
-            display: flex;
-        }
-
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-
-        nav ul li a {
-            color: white;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 0;
-            border-bottom: 2px solid transparent;
-        }
-
-        nav ul li a:hover {
-            border-bottom: 2px solid white;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: white;
-        }
-
-        /* Theme Toggle Button */
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            cursor: pointer;
-            margin-left: 1rem;
-            color: white;
-            transition: all 0.3s ease;
-        }
-
-        .theme-toggle:hover {
-            transform: rotate(20deg) scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .theme-toggle {
-                position: absolute;
-                right: 60px;
-                top: 20px;
-            }
-        }
-
-        /* Hero Section */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://via.placeholder.com/1920x1080?text=Soccer+Stadium') no-repeat center center/cover;
+                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             height: 70vh;
             display: flex;
             align-items: center;
@@ -131,43 +52,10 @@
             padding: 0 2rem;
         }
 
-        .hero-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero-content p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 0.8rem 2rem;
-            font-size: 1rem;
-            font-weight: 600;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #e64a19;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Section Styles */
         .section-title {
             text-align: center;
             margin: 3rem 0;
             font-size: 2rem;
-            color: var(--dark-color);
             position: relative;
         }
 
@@ -180,122 +68,12 @@
             margin: 0.5rem auto;
         }
 
-        /* Competitions Section */
-        .competitions-section {
-            padding: 2rem;
-            background-color: white;
-            margin: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .competitions-container {
-            display: flex;
-            overflow-x: auto;
-            gap: 2rem;
-            padding: 1rem 0;
-            scroll-behavior: smooth;
-            scrollbar-width: thin;
-            scrollbar-color: var(--primary-color) #f1f1f1;
-        }
-
-        .competitions-container::-webkit-scrollbar {
-            height: 8px;
-        }
-
-        .competitions-container::-webkit-scrollbar-track {
-            background: #f1f1f1;
-            border-radius: 10px;
-        }
-
-        .competitions-container::-webkit-scrollbar-thumb {
-            background-color: var(--primary-color);
-            border-radius: 10px;
-        }
-
-        .competition-card {
-            min-width: 300px;
-            background-color: #f9f9f9;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .competition-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .competition-card img {
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        .competition-card h3 {
-            padding: 1rem 1rem 0.5rem;
-            color: var(--dark-color);
-        }
-
-        .competition-card p {
-            padding: 0 1rem;
-            color: var(--gray-color);
-            font-size: 0.9rem;
-        }
-
-        .progress-bar {
-            width: 90%;
-            height: 20px;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            margin: 1rem auto;
-            overflow: hidden;
-        }
-
-        .progress {
-            height: 100%;
-            background-color: var(--success-color);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-
-        .scroll-arrows {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .scroll-left, .scroll-right {
-            background-color: var(--primary-color);
-            color: white;
-            border: none;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .scroll-left:hover, .scroll-right:hover {
-            background-color: var(--secondary-color);
-            transform: scale(1.1);
-        }
-
-        /* News Section */
+        /* News Section Styles */
         .news-section {
             padding: 2rem;
             background-color: white;
             margin: 2rem 0;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
         }
 
         .news-container {
@@ -327,302 +105,17 @@
             padding: 1.5rem;
         }
 
-        .news-content h3 {
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-        }
-
         .news-date {
             color: var(--gray-color);
             font-size: 0.8rem;
             margin-bottom: 1rem;
-            display: block;
-        }
-
-        .news-excerpt {
-            color: var(--dark-color);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
         }
 
         .read-more {
             color: var(--primary-color);
             font-weight: 600;
-            font-size: 0.9rem;
             display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .read-more:hover {
-            color: var(--secondary-color);
-            transform: translateX(5px);
-        }
-
-        .news-scroll-container {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 0.8rem 1rem;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .news-ticker {
-            display: flex;
-            align-items: center;
-            white-space: nowrap;
-            animation: ticker 30s linear infinite;
-        }
-
-        .ticker-label {
-            font-weight: bold;
-            margin-right: 1rem;
-            color: var(--accent-color);
-        }
-
-        .ticker-item {
-            margin-right: 2rem;
-        }
-
-        @keyframes ticker {
-            0% {
-                transform: translateX(100%);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
-        }
-
-        .news-loading {
-            text-align: center;
-            padding: 2rem;
-            color: var(--gray-color);
-        }
-        
-        .error-message {
-            color: var(--danger-color);
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* About Section */
-        .about-section {
-            padding: 2rem;
-            background-color: white;
-            margin: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .developer-image {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid var(--primary-color);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-
-        .developer-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .developer-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-        }
-
-        .developer-title {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .developer-info p {
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-        }
-
-        .developer-skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .skill-tag {
-            background-color: #e3f2fd;
-            color: var(--primary-color);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .developer-contact {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-link {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            transition: all 0.3s ease;
-        }
-
-        .social-link:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-3px);
-        }
-
-        /* Footer Styles */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 3rem 2rem 1rem;
-            margin-top: 3rem;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .footer-section h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .footer-section h4::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -8px;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-color);
-        }
-
-        .footer-section p {
-            margin-bottom: 1rem;
-            opacity: 0.8;
-            font-size: 0.9rem;
-        }
-
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-        }
-
-        .footer-section ul li a {
-            color: white;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-
-        .footer-section ul li a:hover {
-            opacity: 1;
-            padding-left: 5px;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-icons a {
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: var(--primary-color);
-            transform: translateY(-3px);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--primary-color);
-                flex-direction: column;
-                padding: 1rem 0;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            }
-
-            nav ul.show {
-                display: flex;
-            }
-
-            nav ul li {
-                margin: 0;
-                text-align: center;
-                padding: 0.8rem 0;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .hero-content h2 {
-                font-size: 2rem;
-            }
-
-            .hero-content p {
-                font-size: 1rem;
-            }
-
-            .about-content {
-                justify-content: center;
-                text-align: center;
-            }
-
-            .developer-contact {
-                justify-content: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero {
-                height: 60vh;
-            }
-
-            .hero-content h2 {
-                font-size: 1.8rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
+            margin-top: 1rem;
         }
 
         /* Dark Mode Styles */
@@ -631,46 +124,16 @@
             color: #e0e0e0;
         }
 
-        body.dark-mode .competitions-section,
         body.dark-mode .news-section,
-        body.dark-mode .about-section,
-        body.dark-mode .competition-card,
-        body.dark-mode .news-card,
-        body.dark-mode .detail-box {
+        body.dark-mode .news-card {
             background-color: #1e1e1e;
-            color: #e0e0e0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
-        body.dark-mode .section-title {
-            color: #ffffff;
-        }
-
-        body.dark-mode .competition-card h3,
-        body.dark-mode .news-content h3,
-        body.dark-mode .developer-info h3,
-        body.dark-mode .detail-box h4,
-        body.dark-mode .news-excerpt,
-        body.dark-mode .detail-box ul li {
-            color: #e0e0e0;
-        }
-
-        body.dark-mode .skill-tag {
-            background-color: #333;
-            color: #e0e0e0;
-        }
-
-        body.dark-mode footer {
-            background-color: #0a0a0a;
-        }
-
-        body.dark-mode .footer-section ul li a,
-        body.dark-mode .footer-bottom p {
-            color: #b0b0b0;
-        }
-
-        body.dark-mode .theme-toggle {
-            color: #ffcc00;
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2rem;
+            text-align: center;
         }
     </style>
 </head>
@@ -678,260 +141,128 @@
     <header>
         <div class="logo">
             <h1>FootyHub</h1>
-            <p>Your Ultimate Soccer Destination</p>
+            <p>Your Daily Soccer News</p>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#competitions">Competitions</a></li>
-                <li><a href="#news">News</a></li>
-                <li><a href="#about">About</a></li>
-            </ul>
-            <div class="theme-toggle">
-                <i class="fas fa-moon" id="theme-icon"></i>
-            </div>
-            <div class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
+        <div class="theme-toggle">
+            <i class="fas fa-moon" id="theme-icon"></i>
+        </div>
     </header>
 
     <main>
-        <section id="home" class="hero">
+        <section class="hero">
             <div class="hero-content">
-                <h2>Stay Updated With The World of Soccer</h2>
-                <p>Latest matches, transfers, and news all in one place</p>
-                <button class="cta-button">Explore Now</button>
+                <h2>Stay Updated With World Football</h2>
+                <p>Latest matches, transfers and breaking news</p>
             </div>
         </section>
 
-        <section id="competitions" class="competitions-section">
-            <h2 class="section-title">Upcoming & Ongoing Competitions</h2>
-            <div class="competitions-container">
-                <div class="competition-card">
-                    <img src="https://via.placeholder.com/300x200?text=UEFA+Champions+League" alt="UEFA Champions League">
-                    <h3>UEFA Champions League 2024/25</h3>
-                    <p>Group Stage: Sept 2024 - Dec 2024</p>
-                    <p>Final: June 2025 (Munich)</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 40%;">40%</div>
-                    </div>
-                    <p>Round of 16 matches ongoing</p>
-                </div>
-                <div class="competition-card">
-                    <img src="https://via.placeholder.com/300x200?text=FIFA+Club+WC" alt="FIFA Club World Cup">
-                    <h3>FIFA Club World Cup 2025</h3>
-                    <p>June 15 - July 13, 2025</p>
-                    <p>Host: United States</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 10%;">10%</div>
-                    </div>
-                    <p>Qualification nearly complete</p>
-                </div>
-                <div class="competition-card">
-                    <img src="https://via.placeholder.com/300x200?text=Copa+America+2025" alt="Copa America 2025">
-                    <h3>Copa America 2025</h3>
-                    <p>June 14 - July 13, 2025</p>
-                    <p>Host: United States</p>
-                    <div class="progress-bar">
-                        <div class="progress" style="width: 5%;">5%</div>
-                    </div>
-                    <p>Preparation stage</p>
-                </div>
-            </div>
-            <div class="scroll-arrows">
-                <button class="scroll-left"><i class="fas fa-chevron-left"></i></button>
-                <button class="scroll-right"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </section>
-
-        <section id="news" class="news-section">
-            <h2 class="section-title">Daily Soccer News</h2>
+        <section class="news-section">
+            <h2 class="section-title">Today's Football News</h2>
             <div class="news-container" id="news-container">
-                <div class="news-loading">Loading latest news...</div>
-            </div>
-            <div class="news-scroll-container">
-                <div class="news-ticker" id="news-ticker">
-                    <span class="ticker-label">LATEST:</span>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="about-section">
-            <h2 class="section-title">About the Developer</h2>
-            <div class="about-content">
-                <img src="https://via.placeholder.com/200x200?text=Developer" alt="Developer" class="developer-image">
-                <div class="developer-info">
-                    <h3>Web Developer</h3>
-                    <p class="developer-title">Soccer Enthusiast</p>
-                    <p>This website was built using HTML5, CSS3, and JavaScript to provide soccer fans with the latest news and competition updates.</p>
-                    <div class="developer-skills">
-                        <span class="skill-tag">HTML5</span>
-                        <span class="skill-tag">CSS3</span>
-                        <span class="skill-tag">JavaScript</span>
-                        <span class="skill-tag">Responsive Design</span>
-                    </div>
-                </div>
+                <!-- News will be loaded here by JavaScript -->
+                <div class="loading">Loading latest news...</div>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Connect With Us</h4>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 FootyHub. All rights reserved.</p>
-        </div>
+        <p>&copy; 2023 FootyHub | Football News Aggregator</p>
     </footer>
 
     <script>
-        // Mock news data
-        const mockNews = [
-            {
-                title: "Messi leads Inter Miami to Leagues Cup victory",
-                date: "2023-08-19",
-                excerpt: "Lionel Messi scored two goals as Inter Miami defeated Nashville SC in the Leagues Cup final.",
-                image: "https://via.placeholder.com/400x250?text=Messi+Leagues+Cup",
-                url: "#"
-            },
-            {
-                title: "Premier League announces new financial rules",
-                date: "2023-08-18",
-                excerpt: "The Premier League has agreed to implement new financial regulations starting next season.",
-                image: "https://via.placeholder.com/400x250?text=Premier+League",
-                url: "#"
-            },
-            {
-                title: "USWNT advances to World Cup knockout stage",
-                date: "2023-08-17",
-                excerpt: "The US Women's National Team secured their place in the round of 16 with a dominant performance.",
-                image: "https://via.placeholder.com/400x250?text=USWNT",
-                url: "#"
-            },
-            {
-                title: "Haaland breaks Premier League scoring record",
-                date: "2023-08-16",
-                excerpt: "Erling Haaland has set a new single-season Premier League scoring record with 36 goals.",
-                image: "https://via.placeholder.com/400x250?text=Haaland",
-                url: "#"
+        // News API Configuration
+        const API_KEY = 'c7a0875f7d8a4e44a3529ff1330edaaf'; // Replace with your actual NewsAPI key
+        const API_URL = `https://newsapi.org/v2/everything?q=football OR soccer&sortBy=publishedAt&pageSize=10&apiKey=${API_KEY}`;
+        
+        // Fetch news from API
+        async function fetchNews() {
+            try {
+                // First try direct API call
+                let response = await fetch(API_URL);
+                
+                // If CORS error occurs, use proxy as fallback
+                if (!response.ok) {
+                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(API_URL)}`;
+                    response = await fetch(proxyUrl);
+                    const data = await response.json();
+                    displayNews(JSON.parse(data.contents).articles);
+                    return;
+                }
+                
+                const data = await response.json();
+                displayNews(data.articles);
+            } catch (error) {
+                console.error('Error fetching news:', error);
+                // Fallback to mock data if API fails
+                displayMockNews();
             }
-        ];
+        }
 
-        function displayNews() {
-            const newsContainer = document.getElementById('news-container');
-            const ticker = document.getElementById('news-ticker');
+        // Display news articles
+        function displayNews(articles) {
+            const container = document.getElementById('news-container');
+            container.innerHTML = '';
             
-            newsContainer.innerHTML = '';
-            ticker.innerHTML = '<span class="ticker-label">LATEST:</span>';
-            
-            mockNews.forEach(article => {
-                const newsCard = document.createElement('article');
+            articles.forEach(article => {
+                const newsCard = document.createElement('div');
                 newsCard.className = 'news-card';
                 newsCard.innerHTML = `
-                    <img src="${article.image}" alt="${article.title}">
+                    <img src="${article.urlToImage || 'https://via.placeholder.com/400x250?text=Football+News'}" alt="${article.title}">
                     <div class="news-content">
                         <h3>${article.title}</h3>
-                        <p class="news-date">${new Date(article.date).toLocaleDateString()}</p>
-                        <p class="news-excerpt">${article.excerpt}</p>
-                        <a href="${article.url}" class="read-more">Read More</a>
+                        <p class="news-date">${new Date(article.publishedAt).toLocaleDateString()}</p>
+                        <p>${article.description || ''}</p>
+                        <a href="${article.url}" target="_blank" class="read-more">Read Full Story →</a>
                     </div>
                 `;
-                newsContainer.appendChild(newsCard);
+                container.appendChild(newsCard);
             });
-
-            mockNews.forEach(article => {
-                const tickerItem = document.createElement('span');
-                tickerItem.className = 'ticker-item';
-                tickerItem.textContent = article.title;
-                ticker.appendChild(tickerItem);
-                ticker.appendChild(document.createTextNode(' | '));
-            });
-
-            updateTickerAnimation();
         }
 
-        function updateTickerAnimation() {
-            const ticker = document.querySelector('.news-ticker');
-            const itemsWidth = Array.from(ticker.children).reduce((acc, child) => {
-                return acc + child.offsetWidth;
-            }, 0);
-            
-            const duration = Math.max(30, Math.floor(itemsWidth / 50));
-            ticker.style.animation = `ticker ${duration}s linear infinite`;
+        // Mock data fallback
+        function displayMockNews() {
+            const mockNews = [
+                {
+                    title: "Premier League: Latest Transfer Updates",
+                    publishedAt: new Date().toISOString(),
+                    description: "All the latest transfer news and rumors from the English Premier League.",
+                    url: "#",
+                    urlToImage: "https://via.placeholder.com/400x250?text=Premier+League"
+                },
+                {
+                    title: "Champions League Draw Results",
+                    publishedAt: new Date().toISOString(),
+                    description: "See who your favorite team will face in the upcoming Champions League matches.",
+                    url: "#",
+                    urlToImage: "https://via.placeholder.com/400x250?text=Champions+League"
+                }
+            ];
+            displayNews(mockNews);
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mobile menu
-            const hamburger = document.getElementById('hamburger');
-            const navUl = document.querySelector('nav ul');
+        // Dark mode toggle
+        const themeToggle = document.querySelector('.theme-toggle');
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            const icon = document.getElementById('theme-icon');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
             
-            hamburger.addEventListener('click', function() {
-                navUl.classList.toggle('show');
-            });
-            
-            // Smooth scrolling
-            document.querySelectorAll('nav a').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                    
-                    navUl.classList.remove('show');
-                });
-            });
-            
-            // Competition carousel
-            const competitionsContainer = document.querySelector('.competitions-container');
-            const scrollLeftBtn = document.querySelector('.scroll-left');
-            const scrollRightBtn = document.querySelector('.scroll-right');
-            
-            scrollLeftBtn.addEventListener('click', function() {
-                competitionsContainer.scrollBy({ left: -300, behavior: 'smooth' });
-            });
-            
-            scrollRightBtn.addEventListener('click', function() {
-                competitionsContainer.scrollBy({ left: 300, behavior: 'smooth' });
-            });
-
-            // Theme toggle
-            const themeToggle = document.querySelector('.theme-toggle');
-            const themeIcon = document.getElementById('theme-icon');
-            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-            let currentTheme = localStorage.getItem('theme') || 
-                             (prefersDarkScheme.matches ? 'dark' : 'light');
-
-            if (currentTheme === 'dark') {
-                document.body.classList.add('dark-mode');
-                themeIcon.classList.replace('fa-moon', 'fa-sun');
-            }
-
-            function toggleTheme() {
-                document.body.classList.toggle('dark-mode');
-                themeIcon.classList.toggle('fa-sun');
-                themeIcon.classList.toggle('fa-moon');
-                currentTheme = document.body.classList.contains('dark-mode') ? 'dark' : 'light';
-                localStorage.setItem('theme', currentTheme);
-            }
-
-            themeToggle.addEventListener('click', toggleTheme);
-
-            // Display news
-            displayNews();
+            // Save preference
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         });
+
+        // Check for saved theme preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+            document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
+        }
+
+        // Fetch news when page loads
+        document.addEventListener('DOMContentLoaded', fetchNews);
+        
+        // Refresh news every 6 hours
+        setInterval(fetchNews, 6 * 60 * 60 * 1000);
     </script>
 </body>
 </html>
