@@ -7,45 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Global Styles */
-        .legends-section {
-        padding: 2rem;
-        background-color: white;
-        margin: 2rem 0;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    }
-
-    .legend-selector {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-bottom: 2rem;
-    }
-
-    .legend-btn {
-        padding: 0.8rem 1.5rem;
-        background: #f0f0f0;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-    }
-
-    .legend-btn.active {
-        background: #1e88e5;
-        color: white;
-    }
-
-    /* Dark mode variants */
-    body.dark-mode .legends-section,
-    body.dark-mode .legend-profile {
-        background-color: #1e1e1e;
-        color: #e0e0e0;
-    }
-
-    body.dark-mode .legend-btn:not(.active) {
-        background-color: #333;
-    }
         :root {
             --primary-color: #1e88e5;
             --secondary-color: #0d47a1;
@@ -443,179 +404,6 @@
             padding: 2rem;
         }
 
-        /* Legends Section */
-        .legends-section {
-            padding: 2rem;
-            background-color: white;
-            margin: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .legend-selector {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .legend-btn {
-            padding: 0.8rem 1.5rem;
-            background-color: #e0e0e0;
-            border: none;
-            border-radius: 5px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .legend-btn.active {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .legend-btn:hover:not(.active) {
-            background-color: #bdbdbd;
-        }
-
-        .legend-profile {
-            background-color: #f5f5f5;
-            border-radius: 10px;
-            padding: 2rem;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .legend-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .legend-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid white;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .legend-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .legend-info h3 {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-        }
-
-        .legend-years, .legend-position {
-            color: var(--gray-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .legend-timeline {
-            margin-top: 1.5rem;
-        }
-
-        .timeline-bar {
-            height: 10px;
-            background-color: #e0e0e0;
-            border-radius: 5px;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-progress {
-            height: 100%;
-            background-color: var(--primary-color);
-            border-radius: 5px;
-        }
-
-        .timeline-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: var(--gray-color);
-        }
-
-        .legend-details {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .detail-box {
-            background-color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .detail-box h4 {
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            font-size: 1.2rem;
-        }
-
-        .detail-box ul {
-            margin-left: 1rem;
-        }
-
-        .detail-box ul li {
-            margin-bottom: 0.5rem;
-            color: var(--dark-color);
-        }
-
-        .cleats-gallery {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-        }
-
-        .cleats-gallery img {
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            border-radius: 5px;
-            transition: transform 0.3s ease;
-        }
-
-        .cleats-gallery img:hover {
-            transform: scale(1.1);
-        }
-
-        .stats {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .stat-item {
-            text-align: center;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 1rem;
-            border-radius: 5px;
-            min-width: 100px;
-        }
-
-        .stat-number {
-            font-size: 1.5rem;
-            font-weight: bold;
-            display: block;
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            opacity: 0.8;
-        }
-
         /* About Section */
         .about-section {
             padding: 2rem;
@@ -835,15 +623,6 @@
             .section-title {
                 font-size: 1.5rem;
             }
-
-            .legend-header {
-                justify-content: center;
-                text-align: center;
-            }
-
-            .legend-info {
-                min-width: 100%;
-            }
         }
 
         /* Dark Mode Styles */
@@ -854,11 +633,9 @@
 
         body.dark-mode .competitions-section,
         body.dark-mode .news-section,
-        body.dark-mode .legends-section,
         body.dark-mode .about-section,
         body.dark-mode .competition-card,
         body.dark-mode .news-card,
-        body.dark-mode .legend-profile,
         body.dark-mode .detail-box {
             background-color: #1e1e1e;
             color: #e0e0e0;
@@ -871,7 +648,6 @@
 
         body.dark-mode .competition-card h3,
         body.dark-mode .news-content h3,
-        body.dark-mode .legend-info h3,
         body.dark-mode .developer-info h3,
         body.dark-mode .detail-box h4,
         body.dark-mode .news-excerpt,
@@ -909,7 +685,6 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#competitions">Competitions</a></li>
                 <li><a href="#news">News</a></li>
-                <li><a href="#legends">Legends</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
             <div class="theme-toggle">
@@ -925,7 +700,7 @@
         <section id="home" class="hero">
             <div class="hero-content">
                 <h2>Stay Updated With The World of Soccer</h2>
-                <p>Latest matches, transfers, and legendary players all in one place</p>
+                <p>Latest matches, transfers, and news all in one place</p>
                 <button class="cta-button">Explore Now</button>
             </div>
         </section>
@@ -972,7 +747,7 @@
 
         <section id="news" class="news-section">
             <h2 class="section-title">Daily Soccer News</h2>
-            <div class="news-container">
+            <div class="news-container" id="news-container">
                 <div class="news-loading">Loading latest news...</div>
             </div>
             <div class="news-scroll-container">
@@ -981,80 +756,20 @@
                 </div>
             </div>
         </section>
-<!-- Legends Section HTML -->
-<section id="legends" class="legends-section">
-    <h2 class="section-title">Soccer Legends</h2>
-    <div class="legend-selector">
-        <button class="legend-btn active" data-legend="messi">Messi</button>
-        <button class="legend-btn" data-legend="ronaldo">Ronaldo</button>
-        <button class="legend-btn" data-legend="pele">Pelé</button>
-        <button class="legend-btn" data-legend="maradona">Maradona</button>
-    </div>
-
-    <!-- Messi Profile -->
-    <div class="legend-profile" id="messi-profile">
-        <div class="legend-header">
-            <img src="messi2.jpg" alt="Lionel Messi" class="legend-image">
-            <div class="legend-info">
-                <h3>Lionel Messi</h3>
-                <p class="legend-years">Career: 2003-Present</p>
-                <p class="legend-position">Position: Forward / Attacking Midfielder</p>
-                <div class="legend-timeline">
-                    <div class="timeline-bar">
-                        <div class="timeline-progress" style="width: 100%"></div>
-                    </div>
-                    <div class="timeline-labels">
-                        <span>2003 (Debut)</span>
-                        <span>2023 (Active)</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="legend-details">
-            <div class="detail-box">
-                <h4>Clubs</h4>
-                <ul>
-                    <li>Barcelona (2003-2021) - 778 apps, 672 goals</li>
-                    <li>PSG (2021-2023) - 75 apps, 32 goals</li>
-                    <li>Inter Miami (2023-Present) - 41 apps, 22 goals</li>
-                </ul>
-            </div>
-            <div class="detail-box">
-                <h4>International</h4>
-                <ul>
-                    <li>Argentina (2005-Present) - 180 caps, 106 goals</li>
-                    <li>2022 World Cup Winner</li>
-                    <li>2021 Copa America Winner</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Other legends follow similar structure with real data -->
-</section>
-        <!-- Legends and About sections remain unchanged -->
 
         <section id="about" class="about-section">
             <h2 class="section-title">About the Developer</h2>
             <div class="about-content">
-                <img src="https://via.placeholder.com/200x200?text=Salman" alt="Salman" class="developer-image">
+                <img src="https://via.placeholder.com/200x200?text=Developer" alt="Developer" class="developer-image">
                 <div class="developer-info">
-                    <h3>Salman</h3>
-                    <p class="developer-title">Web Developer & Soccer Enthusiast</p>
-                    <p>Hello! I'm Salman, the creator of FootyHub. I've been passionate about soccer since childhood and combined that with my web development skills to create this platform.</p>
-                    <p>This website was built using HTML5, CSS3, and JavaScript to provide soccer fans with the latest news, competition updates, and information about legendary players.</p>
+                    <h3>Web Developer</h3>
+                    <p class="developer-title">Soccer Enthusiast</p>
+                    <p>This website was built using HTML5, CSS3, and JavaScript to provide soccer fans with the latest news and competition updates.</p>
                     <div class="developer-skills">
                         <span class="skill-tag">HTML5</span>
                         <span class="skill-tag">CSS3</span>
                         <span class="skill-tag">JavaScript</span>
                         <span class="skill-tag">Responsive Design</span>
-                        <span class="skill-tag">UI/UX</span>
-                    </div>
-                    <div class="developer-contact">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
                     </div>
                 </div>
             </div>
@@ -1064,135 +779,95 @@
     <footer>
         <div class="footer-content">
             <div class="footer-section">
-                <h4>FootyHub</h4>
-                <p>Your ultimate destination for all things soccer. Stay updated with the latest news, competitions, and legendary players.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#competitions">Competitions</a></li>
-                    <li><a href="#news">News</a></li>
-                    <li><a href="#legends">Legends</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
                 <h4>Connect With Us</h4>
                 <div class="social-icons">
                     <a href="#"><i class="fab fa-facebook"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 FootyHub. All rights reserved. Developed by Salman.</p>
+            <p>&copy; 2025 FootyHub. All rights reserved.</p>
         </div>
     </footer>
-<!-- In your HTML -->
-<section id="news" class="news-section">
-    <h2 class="section-title">Daily Soccer News</h2>
-    <div class="news-container" id="news-container">
-        <div class="news-loading">Loading latest news...</div>
-    </div>
-    <div class="news-scroll-container">
-        <div class="news-ticker" id="news-ticker">
-            <span class="ticker-label">LATEST:</span>
-        </div>
-    </div>
-</section>
+
     <script>
+        // Mock news data
+        const mockNews = [
+            {
+                title: "Messi leads Inter Miami to Leagues Cup victory",
+                date: "2023-08-19",
+                excerpt: "Lionel Messi scored two goals as Inter Miami defeated Nashville SC in the Leagues Cup final.",
+                image: "https://via.placeholder.com/400x250?text=Messi+Leagues+Cup",
+                url: "#"
+            },
+            {
+                title: "Premier League announces new financial rules",
+                date: "2023-08-18",
+                excerpt: "The Premier League has agreed to implement new financial regulations starting next season.",
+                image: "https://via.placeholder.com/400x250?text=Premier+League",
+                url: "#"
+            },
+            {
+                title: "USWNT advances to World Cup knockout stage",
+                date: "2023-08-17",
+                excerpt: "The US Women's National Team secured their place in the round of 16 with a dominant performance.",
+                image: "https://via.placeholder.com/400x250?text=USWNT",
+                url: "#"
+            },
+            {
+                title: "Haaland breaks Premier League scoring record",
+                date: "2023-08-16",
+                excerpt: "Erling Haaland has set a new single-season Premier League scoring record with 36 goals.",
+                image: "https://via.placeholder.com/400x250?text=Haaland",
+                url: "#"
+            }
+        ];
 
-// Replace your news JavaScript with this:
-document.addEventListener('DOMContentLoaded', function() {
-    // Mock news data that works without API
-    const mockNews = [
-        {
-            title: "Messi leads Inter Miami to Leagues Cup victory",
-            date: "2023-08-19",
-            excerpt: "Lionel Messi scored two goals as Inter Miami defeated Nashville SC in the Leagues Cup final.",
-            image: "https://via.placeholder.com/400x250?text=Messi+Leagues+Cup",
-            url: "#"
-        },
-        {
-            title: "Premier League announces new financial rules",
-            date: "2023-08-18",
-            excerpt: "The Premier League has agreed to implement new financial regulations starting next season.",
-            image: "https://via.placeholder.com/400x250?text=Premier+League",
-            url: "#"
-        },
-        {
-            title: "USWNT advances to World Cup knockout stage",
-            date: "2023-08-17",
-            excerpt: "The US Women's National Team secured their place in the round of 16 with a dominant performance.",
-            image: "https://via.placeholder.com/400x250?text=USWNT",
-            url: "#"
-        },
-        {
-            title: "Haaland breaks Premier League scoring record",
-            date: "2023-08-16",
-            excerpt: "Erling Haaland has set a new single-season Premier League scoring record with 36 goals.",
-            image: "https://via.placeholder.com/400x250?text=Haaland",
-            url: "#"
+        function displayNews() {
+            const newsContainer = document.getElementById('news-container');
+            const ticker = document.getElementById('news-ticker');
+            
+            newsContainer.innerHTML = '';
+            ticker.innerHTML = '<span class="ticker-label">LATEST:</span>';
+            
+            mockNews.forEach(article => {
+                const newsCard = document.createElement('article');
+                newsCard.className = 'news-card';
+                newsCard.innerHTML = `
+                    <img src="${article.image}" alt="${article.title}">
+                    <div class="news-content">
+                        <h3>${article.title}</h3>
+                        <p class="news-date">${new Date(article.date).toLocaleDateString()}</p>
+                        <p class="news-excerpt">${article.excerpt}</p>
+                        <a href="${article.url}" class="read-more">Read More</a>
+                    </div>
+                `;
+                newsContainer.appendChild(newsCard);
+            });
+
+            mockNews.forEach(article => {
+                const tickerItem = document.createElement('span');
+                tickerItem.className = 'ticker-item';
+                tickerItem.textContent = article.title;
+                ticker.appendChild(tickerItem);
+                ticker.appendChild(document.createTextNode(' | '));
+            });
+
+            updateTickerAnimation();
         }
-    ];
 
-    function displayNews() {
-        const newsContainer = document.getElementById('news-container');
-        const ticker = document.getElementById('news-ticker');
-        
-        // Clear loading message
-        newsContainer.innerHTML = '';
-        ticker.innerHTML = '<span class="ticker-label">LATEST:</span>';
-        
-        // Add news cards
-        mockNews.forEach(article => {
-            const newsCard = document.createElement('article');
-            newsCard.className = 'news-card';
-            newsCard.innerHTML = `
-                <img src="${article.image}" alt="${article.title}">
-                <div class="news-content">
-                    <h3>${article.title}</h3>
-                    <p class="news-date">${new Date(article.date).toLocaleDateString()}</p>
-                    <p class="news-excerpt">${article.excerpt}</p>
-                    <a href="${article.url}" class="read-more">Read More</a>
-                </div>
-            `;
-            newsContainer.appendChild(newsCard);
-        });
+        function updateTickerAnimation() {
+            const ticker = document.querySelector('.news-ticker');
+            const itemsWidth = Array.from(ticker.children).reduce((acc, child) => {
+                return acc + child.offsetWidth;
+            }, 0);
+            
+            const duration = Math.max(30, Math.floor(itemsWidth / 50));
+            ticker.style.animation = `ticker ${duration}s linear infinite`;
+        }
 
-        // Add ticker items
-        mockNews.forEach(article => {
-            const tickerItem = document.createElement('span');
-            tickerItem.className = 'ticker-item';
-            tickerItem.textContent = article.title;
-            ticker.appendChild(tickerItem);
-            ticker.appendChild(document.createTextNode(' | '));
-        });
-
-        // Update ticker animation
-        updateTickerAnimation();
-    }
-
-    function updateTickerAnimation() {
-        const ticker = document.querySelector('.news-ticker');
-        const itemsWidth = Array.from(ticker.children).reduce((acc, child) => {
-            return acc + child.offsetWidth;
-        }, 0);
-        
-        const duration = Math.max(30, Math.floor(itemsWidth / 50));
-        ticker.style.animation = `ticker ${duration}s linear infinite`;
-    }
-
-    // Display news immediately
-    displayNews();
-    
-    // Refresh news every 6 hours (simulated)
-    setInterval(displayNews, 6 * 60 * 60 * 1000);
-});
-
-        // Original JavaScript with added news functionality
         document.addEventListener('DOMContentLoaded', function() {
             // Mobile menu
             const hamburger = document.getElementById('hamburger');
@@ -1230,22 +905,6 @@ document.addEventListener('DOMContentLoaded', function() {
             scrollRightBtn.addEventListener('click', function() {
                 competitionsContainer.scrollBy({ left: 300, behavior: 'smooth' });
             });
-            
-            // Legend profiles
-            const legendBtns = document.querySelectorAll('.legend-btn');
-            const legendProfiles = document.querySelectorAll('.legend-profile');
-            
-            legendBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    legendBtns.forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                    legendProfiles.forEach(profile => profile.style.display = 'none');
-                    document.getElementById(`${this.dataset.legend}-profile`).style.display = 'block';
-                });
-            });
-            
-            // Initialize default legend
-            document.getElementById('messi-profile').style.display = 'block';
 
             // Theme toggle
             const themeToggle = document.querySelector('.theme-toggle');
@@ -1270,32 +929,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             themeToggle.addEventListener('click', toggleTheme);
 
-            // Initialize news
-            setupNewsRefresh();
-            setTimeout(updateTickerAnimation, 2000);
+            // Display news
+            displayNews();
         });
-            // Legend selector functionality
-    document.querySelectorAll('.legend-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            document.querySelectorAll('.legend-btn').forEach(b => b.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            // Hide all profiles
-            document.querySelectorAll('.legend-profile').forEach(profile => {
-                profile.style.display = 'none';
-            });
-            
-            // Show selected profile
-            const legend = this.dataset.legend;
-            document.getElementById(`${legend}-profile`).style.display = 'block';
-        });
-    });
-
-    // Show Messi profile by default
-    document.getElementById('messi-profile').style.display = 'block';
     </script>
 </body>
 </html>
