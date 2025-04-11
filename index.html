@@ -42,7 +42,7 @@
 
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
-                        url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+                        url('https://images.unsplash.com/photo-1579952363872-3e3e5f3c0b9b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
             height: 70vh;
             display: flex;
             align-items: center;
@@ -74,6 +74,9 @@
             background-color: white;
             margin: 2rem 0;
             border-radius: 10px;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .news-container {
@@ -127,6 +130,11 @@
         body.dark-mode .news-section,
         body.dark-mode .news-card {
             background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+
+        body.dark-mode .news-date {
+            color: #b0b0b0;
         }
 
         footer {
@@ -134,6 +142,28 @@
             color: white;
             padding: 2rem;
             text-align: center;
+        }
+
+        /* Loading spinner */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            grid-column: 1 / -1;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-radius: 50%;
+            border-top-color: var(--primary-color);
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -152,15 +182,16 @@
         <section class="hero">
             <div class="hero-content">
                 <h2>Stay Updated With World Football</h2>
-                <p>Latest matches, transfers and breaking news</p>
+                <p>Latest matches, transfers and breaking news from the beautiful game</p>
             </div>
         </section>
 
         <section class="news-section">
-            <h2 class="section-title">Today's Football News</h2>
+            <h2 class="section-title">Today's Soccer News</h2>
             <div class="news-container" id="news-container">
-                <!-- News will be loaded here by JavaScript -->
-                <div class="loading">Loading latest news...</div>
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
             </div>
         </section>
     </main>
@@ -170,19 +201,22 @@
     </footer>
 
     <script>
-        // News API Configuration
-        const API_KEY = 'c7a0875f7d8a4e44a3529ff1330edaaf'; // Replace with your actual NewsAPI key
-        const API_URL = `https://newsapi.org/v2/everything?q=football OR soccer&sortBy=publishedAt&pageSize=10&apiKey=${API_KEY}`;
+        // Soccer-specific news sources and queries
+        const SOCCER_SOURCES = 'bbc.co.uk,skysports.com,espnfc.com,theguardian.com,goal.com';
+        const SOCCER_QUERY = '(football OR soccer) AND -nfl AND -"american football"';
+        const API_KEY = 'c7a0875f7d8a4e44a3529ff1330edaaf'; // Replace with your NewsAPI key
         
-        // Fetch news from API
-        async function fetchNews() {
+        // Fetch soccer news from API
+        async function fetchSoccerNews() {
             try {
-                // First try direct API call
-                let response = await fetch(API_URL);
+                const directUrl = `https://newsapi.org/v2/everything?q=${encodeURIComponent(SOCCER_QUERY)}&sources=${SOCCER_SOURCES}&sortBy=publishedAt&pageSize=12&apiKey=${API_KEY}`;
                 
-                // If CORS error occurs, use proxy as fallback
+                // Try direct API call first
+                let response = await fetch(directUrl);
+                
+                // If CORS issue, use proxy fallback
                 if (!response.ok) {
-                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(API_URL)}`;
+                    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(directUrl)}`;
                     response = await fetch(proxyUrl);
                     const data = await response.json();
                     displayNews(JSON.parse(data.contents).articles);
@@ -192,26 +226,41 @@
                 const data = await response.json();
                 displayNews(data.articles);
             } catch (error) {
-                console.error('Error fetching news:', error);
-                // Fallback to mock data if API fails
-                displayMockNews();
+                console.error('Error fetching soccer news:', error);
+                displayMockSoccerNews();
             }
         }
 
-        // Display news articles
+        // Display soccer news articles
         function displayNews(articles) {
             const container = document.getElementById('news-container');
+            
+            if (!articles || articles.length === 0) {
+                container.innerHTML = '<p style="grid-column:1/-1;text-align:center">No soccer news available at the moment. Please check back later.</p>';
+                return;
+            }
+            
             container.innerHTML = '';
             
             articles.forEach(article => {
+                // Skip any American football articles that might slip through
+                if (article.title.toLowerCase().includes('nfl') || 
+                    article.description.toLowerCase().includes('american football')) {
+                    return;
+                }
+                
                 const newsCard = document.createElement('div');
                 newsCard.className = 'news-card';
                 newsCard.innerHTML = `
-                    <img src="${article.urlToImage || 'https://via.placeholder.com/400x250?text=Football+News'}" alt="${article.title}">
+                    <img src="${article.urlToImage || 'https://images.unsplash.com/photo-1560272564-c83b66b1ad12?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80'}" alt="${article.title}">
                     <div class="news-content">
                         <h3>${article.title}</h3>
-                        <p class="news-date">${new Date(article.publishedAt).toLocaleDateString()}</p>
-                        <p>${article.description || ''}</p>
+                        <p class="news-date">${new Date(article.publishedAt).toLocaleDateString('en-US', { 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                        })}</p>
+                        <p>${article.description || 'Click to read more about this soccer story'}</p>
                         <a href="${article.url}" target="_blank" class="read-more">Read Full Story →</a>
                     </div>
                 `;
@@ -219,22 +268,29 @@
             });
         }
 
-        // Mock data fallback
-        function displayMockNews() {
+        // Mock soccer news data
+        function displayMockSoccerNews() {
             const mockNews = [
                 {
-                    title: "Premier League: Latest Transfer Updates",
+                    title: "Champions League: Quarterfinal Draw Results",
                     publishedAt: new Date().toISOString(),
-                    description: "All the latest transfer news and rumors from the English Premier League.",
+                    description: "See the matchups for the upcoming Champions League quarterfinals as Europe's elite clubs learn their fate.",
                     url: "#",
-                    urlToImage: "https://via.placeholder.com/400x250?text=Premier+League"
+                    urlToImage: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
                 },
                 {
-                    title: "Champions League Draw Results",
+                    title: "Premier League Transfer Window Updates",
                     publishedAt: new Date().toISOString(),
-                    description: "See who your favorite team will face in the upcoming Champions League matches.",
+                    description: "All the latest transfer news and rumors from England's top football division.",
                     url: "#",
-                    urlToImage: "https://via.placeholder.com/400x250?text=Champions+League"
+                    urlToImage: "https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
+                },
+                {
+                    title: "Messi Scores Twice as PSG Win Ligue 1 Title",
+                    publishedAt: new Date().toISOString(),
+                    description: "Lionel Messi's brace secures another league championship for Paris Saint-Germain.",
+                    url: "#",
+                    urlToImage: "https://images.unsplash.com/photo-1574629810360-7efbbe195018?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=80"
                 }
             ];
             displayNews(mockNews);
@@ -247,8 +303,6 @@
             const icon = document.getElementById('theme-icon');
             icon.classList.toggle('fa-moon');
             icon.classList.toggle('fa-sun');
-            
-            // Save preference
             localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
         });
 
@@ -258,11 +312,11 @@
             document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
         }
 
-        // Fetch news when page loads
-        document.addEventListener('DOMContentLoaded', fetchNews);
+        // Fetch soccer news when page loads
+        document.addEventListener('DOMContentLoaded', fetchSoccerNews);
         
-        // Refresh news every 6 hours
-        setInterval(fetchNews, 6 * 60 * 60 * 1000);
+        // Refresh news every 4 hours
+        setInterval(fetchSoccerNews, 4 * 60 * 60 * 1000);
     </script>
 </body>
 </html>
